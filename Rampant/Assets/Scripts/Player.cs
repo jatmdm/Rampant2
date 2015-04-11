@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	public GameObject weapon;
 	public float sBounce;
 	public float weaponDist = 1;
+	public GameObject spark;
 	private Vector2 weaponVecDist;
 	private float sheathCoolDown;
 	private bool Unsheathed;
@@ -77,12 +78,6 @@ public class Player : MonoBehaviour {
 			fakeMax = Mathf.Lerp(fakeMax, maxSpeed, Time.fixedDeltaTime*5);
 			weapon.SetActive(false);
 		}
-
-		if(Input.GetMouseButtonDown(0) && (sheathCoolDown < 0))
-		{
-			Unsheathed = !Unsheathed;
-			sheathCoolDown = 1;
-		}
 		if(Input.GetKeyDown(KeyCode.LeftShift) && dashDelay < 0)
 		{
 			dashDelay = .25f;
@@ -104,6 +99,13 @@ public class Player : MonoBehaviour {
 
 		Vector2 dist = new Vector2(Mathf.Cos(Mathf.Atan2 (diffY, diffX)-(sBounce)*Mathf.Deg2Rad)*weaponDist, Mathf.Sin(Mathf.Atan2 (diffY, diffX)-(sBounce)*Mathf.Deg2Rad)*weaponDist);
 		weaponVecDist = dist;
+
+		if(Input.GetMouseButtonDown(0) && (sheathCoolDown < 0))
+		{
+			Destroy (Instantiate (spark, (Vector2)this.transform.position + dist, spark.transform.rotation) as GameObject, .167f);
+			Unsheathed = !Unsheathed;
+			sheathCoolDown = 1;
+		}
 
 		weapon.GetComponent<Rigidbody2D> ().MovePosition ((Vector2)this.transform.position+dist);
 
