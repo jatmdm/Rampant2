@@ -19,6 +19,7 @@ public class RevanentAI : MonoBehaviour {
 			if(transform.eulerAngles.z != 90) GetComponent<EnemyAI>().knock = ((Vector2)transform.position-(Vector2)GameObject.FindGameObjectWithTag ("Player").transform.position).normalized*.05f;
 			GetComponent<EnemyAI> ().dir = Vector2.zero;
 			GetComponent<EnemyAI>().speed = 0;
+			Destroy(GetComponent<Agent>());
 			transform.rotation = Quaternion.Euler(0, 0, 90);
 		}
 

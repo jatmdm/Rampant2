@@ -47,7 +47,9 @@ public class Weapon : MonoBehaviour {
 	public void OnTriggerEnter2D(Collider2D c){
 		if(c.gameObject.tag == "Enemy" && !this.GetComponent<weaponPickUp>())
 		{
-			//Debug.Log(dealtPhysicalDamage() + " " + dealtMagicDamage());
+			GameObject.FindGameObjectWithTag("Player").GetComponent<AdventurerStats>().fakeStamina -= 5;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().sBounce = Random.Range(-50, 50);
+
 			c.gameObject.GetComponent<EnemyStats>().takeDamage(dealtPhysicalDamage(), dealtMagicDamage());
 			c.gameObject.GetComponent<EnemyAI>().knock = (c.gameObject.transform.position-this.gameObject.transform.position).normalized;
 			Camera.main.GetComponent<Cam> ().shakeCam ();

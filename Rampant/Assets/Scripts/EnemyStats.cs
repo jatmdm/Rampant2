@@ -24,6 +24,7 @@ public class EnemyStats : MonoBehaviour {
 	void Update(){
 		if(health <= 0){
 			dead = true;
+			tag = "DeadEnemy";
 		}
 	}
 

@@ -133,7 +133,7 @@ public class Player : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D c)
 	{
-		if(c.gameObject.tag == "Enemy")
+		if(c.gameObject.tag == "Enemy" && !c.gameObject.GetComponent<EnemyStats>().dead)
 		{
 			knock = (this.gameObject.transform.position-c.gameObject.transform.position).normalized*.02f;
 			Camera.main.GetComponent<Cam> ().shakeCam ();

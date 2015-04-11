@@ -23,8 +23,14 @@ public class Agent : MonoBehaviour {
 	public float completionDist = .9f;
 	public float updateFreq = 1.25f;
 
+	void Start()
+	{
+		updateFreq += Random.Range (-.3f, .3f);
+	}
+
 	private Vector2 avoidanceCheck()
 	{
+
 		RaycastHit2D hit;
 		Vector2 ret = Vector2.zero;
 		
