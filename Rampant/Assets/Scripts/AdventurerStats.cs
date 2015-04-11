@@ -53,6 +53,7 @@ public class AdventurerStats : MonoBehaviour {
 				health = maxHealth;
 			healthPotions--;
 			Camera.main.GetComponent<Cam>().shakeCam(0.2f, 0.25f);
+			GameObject.Find("HealthPotionAnimation").GetComponent<ParticleSystem>().Play();
 		}
 	}
 

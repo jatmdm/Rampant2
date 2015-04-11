@@ -9,7 +9,7 @@ public class Grid : MonoBehaviour {
 	public float area = 4;
 	public string collidables;
 	public bool drawGizmos;
-
+	public float cooldown = 1f;
 	// Use this for initialization
 	void Start () 
 	{
@@ -73,7 +73,11 @@ public class Grid : MonoBehaviour {
 		//if(!transform.position.Equals(lastPos))
 		//{
 			//nodes.Clear();
+		cooldown-=Time.deltaTime;
+		if(cooldown<=0){
 			makeGrid();
+			cooldown = 5;
+		}
 		//}
 		//lastPos = transform.position;
 	}

@@ -25,7 +25,7 @@ public class Agent : MonoBehaviour {
 
 	void Start()
 	{
-		updateFreq += Random.Range (-.3f, .3f);
+		updateFreq += Random.Range (0f, .3f);
 	}
 
 	private Vector2 avoidanceCheck()
