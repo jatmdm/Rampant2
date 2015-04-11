@@ -45,9 +45,9 @@ public class AdventurerStats : MonoBehaviour {
 	}
 
 	public void initStats(){
-		basePower = Random.Range(1,4);
-		baseWit = Random.Range (1,4);
-		baseVit = Random.Range (1,4);
+		basePower = Random.Range(3,6);
+		baseWit = Random.Range (3,6);
+		baseVit = Random.Range (3,6);
 
 		maxHealth = baseVit*10f;
 		stamina = health = maxStamina =  maxHealth;
@@ -104,16 +104,23 @@ public class AdventurerStats : MonoBehaviour {
 		else
 			fakeStamina += staminaRegen * 40 * Time.deltaTime;
 
-		stamina = Mathf.MoveTowards(stamina, fakeStamina, 50*Time.deltaTime);
+		stamina = Mathf.MoveTowards(stamina, fakeStamina, 20*Time.deltaTime);
 
-		fakeStamina = Mathf.Clamp (fakeStamina, -10, health);
+		//fakeStamina = Mathf.Clamp (fakeStamina, maxHealth, health);
+
+		maxStamina = health;
+		if(health <= maxHealth*.2f)
+		{
+			maxStamina = maxHealth*.2f;
+		}
 
 		if(health <= 0){
 			dead = true;
 			Application.LoadLevel(Application.loadedLevel);
 		}
-		if(stamina >= health){
-			stamina = health;
+		if(fakeStamina >= maxStamina+staminaRegen)
+		{
+			fakeStamina = maxStamina;
 			exausted = false;
 		}
 
