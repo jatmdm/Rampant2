@@ -142,7 +142,7 @@ public class AdventurerStats : MonoBehaviour {
 
 		if(health <= 0){
 			dead = true;
-			Application.LoadLevel(Application.loadedLevel);
+			//Application.LoadLevel(Application.loadedLevel);
 		}
 		if(fakeStamina >= maxStamina+staminaRegen)
 		{
