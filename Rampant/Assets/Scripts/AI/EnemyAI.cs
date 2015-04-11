@@ -12,5 +12,4 @@ public class EnemyAI : MonoBehaviour {
 	public Vector2 minimumGenderTolerance;
 	public Vector2 maximumGenderTolerance;
 
-
 }

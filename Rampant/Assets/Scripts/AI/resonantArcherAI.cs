@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RevanentAI : MonoBehaviour {
+public class resonantArcherAI : MonoBehaviour {
 
 	public float followDistance;
 	public float chargeTime = 0;
 
+	public GameObject bow;
+	public GameObject arrow;
+	private float weaponDist;
+	private float shoot;
+
 	// Use this for initialization
 	void Start () {
-
+		bow = Instantiate (bow, transform.position, Quaternion.identity) as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -29,20 +34,28 @@ public class RevanentAI : MonoBehaviour {
 
 		if (!GetComponent<EnemyStats> ().dead) 
 		{
-			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance) {
-				GetComponent<EnemyAI> ().targetPosition = GameObject.FindGameObjectWithTag ("Player").transform.position;
-				GetComponent<EnemyAI> ().speed = Mathf.Lerp (GetComponent<EnemyAI> ().speed, 5, Time.fixedDeltaTime * 5);
-			}
+			GetComponent<EnemyAI> ().dir = Vector2.zero;
+			weaponDist = .65f;
+			Vector2 diff = (GameObject.FindGameObjectWithTag ("Player").transform.position-this.transform.position).normalized;
+			Vector2 dist = new Vector2 (Mathf.Cos (Mathf.Atan2 (diff.y, diff.x)) * weaponDist, Mathf.Sin (Mathf.Atan2 (diff.y, diff.x)) * weaponDist);
+			bow.GetComponent<Rigidbody2D> ().MovePosition ((Vector2)this.transform.position + dist/2);
+			bow.transform.rotation = Quaternion.Euler (0, 0, Mathf.Rad2Deg * Mathf.Atan2 (diff.y, diff.x) - 90);
 
-			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance / 3) {
-				chargeTime += Time.fixedDeltaTime;
-			}
+			shoot -= Time.fixedDeltaTime;
 
-			if (chargeTime > 2) {
-				GetComponent<EnemyAI> ().dir += ((Vector2)GameObject.FindGameObjectWithTag ("Player").transform.position - (Vector2)transform.position).normalized * 5;
-				chargeTime = 0;
+			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance/3) {
+				GetComponent<EnemyAI> ().targetPosition = (this.transform.position-GameObject.FindGameObjectWithTag ("Player").transform.position).normalized*5;
+				GetComponent<EnemyAI> ().speed = Mathf.Lerp (GetComponent<EnemyAI> ().speed, 6, Time.fixedDeltaTime * 5);
 			}
-
+			else
+			{
+				if(shoot < 0)
+				{
+					shoot = Random.Range(1.0f, 3.5f);
+					GameObject tmp = Instantiate(arrow, (Vector2)transform.position+dist, Quaternion.identity) as GameObject;
+					tmp.GetComponent<arrow>().dir = diff*8;
+				}
+			}
 
 			if (GetComponent<EnemyAI> ().targetPosition == null) {
 				GetComponent<EnemyAI> ().dir = Vector2.zero;

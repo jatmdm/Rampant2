@@ -126,7 +126,7 @@ public class AdventurerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!GetComponent<Player>().Unsheathed)
-			fakeStamina += staminaRegen * 80 * Time.deltaTime;
+			fakeStamina += staminaRegen * 90 * Time.deltaTime;
 		else
 			fakeStamina += staminaRegen * 40 * Time.deltaTime;
 
