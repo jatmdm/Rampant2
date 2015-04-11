@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3dbaf5831dcd740eb8eafae9673cd7e0
-timeCreated: 1428730612
+timeCreated: 1428741624
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,12 @@ TextureImporter:
     21300016: theCrypt-01_8
     21300018: theCrypt-01_9
     21300020: theCrypt-01_10
+    21300022: theCrypt-01_11
+    21300024: theCrypt-01_12
+    21300026: theCrypt-01_13
+    21300028: theCrypt-01_14
+    21300030: theCrypt-01_15
+    21300032: theCrypt-01_16
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -93,6 +99,16 @@ TextureImporter:
     - name: theCrypt-01_3
       rect:
         serializedVersion: 2
+        x: 559
+        y: 921
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: theCrypt-01_4
+      rect:
+        serializedVersion: 2
         x: 774
         y: 597
         width: 56
@@ -100,7 +116,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_4
+    - name: theCrypt-01_5
       rect:
         serializedVersion: 2
         x: 383
@@ -110,7 +126,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_5
+    - name: theCrypt-01_6
       rect:
         serializedVersion: 2
         x: 413
@@ -120,7 +136,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_6
+    - name: theCrypt-01_7
       rect:
         serializedVersion: 2
         x: 404
@@ -130,7 +146,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_7
+    - name: theCrypt-01_8
       rect:
         serializedVersion: 2
         x: 535
@@ -140,7 +156,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_8
+    - name: theCrypt-01_9
       rect:
         serializedVersion: 2
         x: 401
@@ -150,7 +166,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_9
+    - name: theCrypt-01_10
       rect:
         serializedVersion: 2
         x: 418
@@ -160,13 +176,63 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: theCrypt-01_10
+    - name: theCrypt-01_11
       rect:
         serializedVersion: 2
-        x: 347
-        y: 600
-        width: 31
+        x: 377
+        y: 670
+        width: 32
         height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: theCrypt-01_12
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 569
+        width: 64
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: theCrypt-01_13
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 530
+        width: 115
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: theCrypt-01_14
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 352
+        width: 184
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: theCrypt-01_15
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 389
+        width: 92
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: theCrypt-01_16
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 355
+        width: 232
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -107,6 +107,6 @@ public class Player : MonoBehaviour {
 
 		weapon.GetComponent<Rigidbody2D> ().MovePosition ((Vector2)this.transform.position+dist);
 
-		weapon.transform.rotation = Quaternion.Euler (0, 0, Mathf.Rad2Deg * Mathf.Atan2 (diffY, diffX)+90-sBounce);
+		weapon.transform.rotation = Quaternion.Euler (0, 0, Mathf.Rad2Deg * Mathf.Atan2 (diffY, diffX)-90-sBounce);
 	}
 }

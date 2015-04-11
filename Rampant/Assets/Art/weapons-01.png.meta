@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: b9b99aec75b7c5a46b7aead8ea957c9f
+timeCreated: 1428742260
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: weapons-01_0
+    21300002: weapons-01_1
+    21300004: weapons-01_2
+    21300006: weapons-01_3
+    21300008: weapons-01_4
+    21300010: weapons-01_5
+    21300012: weapons-01_6
+    21300014: weapons-01_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: weapons-01_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 564
+        width: 14
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 564
+        width: 13
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 564
+        width: 18
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_3
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 560
+        width: 31
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_4
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 564
+        width: 40
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_5
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 563
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_6
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 602
+        width: 9
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapons-01_7
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 562
+        width: 92
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

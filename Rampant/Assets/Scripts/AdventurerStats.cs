@@ -30,7 +30,7 @@ public class AdventurerStats : MonoBehaviour {
 	public float dMagicDefense; //Damage Reduction (Magic)
 
 	public List<GameObject> gems = new List<GameObject>(3);
-
+	public List<GameObject> weapons = new List<GameObject>(3);
 	public bool dead;
 
 
