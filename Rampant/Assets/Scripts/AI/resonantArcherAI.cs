@@ -43,7 +43,8 @@ public class resonantArcherAI : MonoBehaviour {
 
 			shoot -= Time.fixedDeltaTime;
 
-			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance/3) {
+			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance/3 &&
+			    GetComponent<EnemyAI>().canSeeObject(GameObject.Find ("Player"))) {
 				GetComponent<EnemyAI> ().targetPosition = (this.transform.position-GameObject.FindGameObjectWithTag ("Player").transform.position).normalized*5;
 				GetComponent<EnemyAI> ().speed = Mathf.Lerp (GetComponent<EnemyAI> ().speed, 6, Time.fixedDeltaTime * 5);
 			}

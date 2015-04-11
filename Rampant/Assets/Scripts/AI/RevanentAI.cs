@@ -29,7 +29,8 @@ public class RevanentAI : MonoBehaviour {
 
 		if (!GetComponent<EnemyStats> ().dead) 
 		{
-			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance) {
+			if (Vector2.Distance (GameObject.FindGameObjectWithTag ("Player").transform.position, this.gameObject.transform.position) < followDistance &&
+			    GetComponent<EnemyAI>().canSeeObject(GameObject.Find("Player"))) {
 				GetComponent<EnemyAI> ().targetPosition = GameObject.FindGameObjectWithTag ("Player").transform.position;
 				GetComponent<EnemyAI> ().speed = Mathf.Lerp (GetComponent<EnemyAI> ().speed, 5, Time.fixedDeltaTime * 5);
 			}
