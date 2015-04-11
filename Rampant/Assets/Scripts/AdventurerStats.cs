@@ -52,6 +52,7 @@ public class AdventurerStats : MonoBehaviour {
 			if(health > maxHealth)
 				health = maxHealth;
 			healthPotions--;
+			Camera.main.GetComponent<Cam>().shakeCam(0.2f, 0.25f);
 		}
 	}
 
