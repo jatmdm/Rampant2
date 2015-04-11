@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using System.Collections.Generic;
+
 public class AdventurerStats : MonoBehaviour {
 
 	public float health;
@@ -20,11 +22,17 @@ public class AdventurerStats : MonoBehaviour {
 	public Vector2 gender; //x axis is feminitity, y axis is masculinity
 
 	public float baseDamage; //Base damage done
+	public float dDamage;
 	
 	public float physicalDefense; //Damage Reduction (Physical)
 	public float magicDefense; //Damage Reduction (Magic)
+	public float dPhysicalDefense; //Damage Reduction (Physical)
+	public float dMagicDefense; //Damage Reduction (Magic)
+
+	public List<GameObject> gems = new List<GameObject>(3);
 
 	public bool dead;
+
 
 
 	// Use this for initialization
@@ -51,14 +59,33 @@ public class AdventurerStats : MonoBehaviour {
 	}
 
 	public void updateStats(){
+		dPower = basePower;
+		dWit = baseWit;
+		dVit = baseVit;
+		dPhysicalDefense = physicalDefense;
+		dMagicDefense = magicDefense;
+		dDamage = baseDamage;
+		for(int i = 0; i < gems.Count; i++){
+			dPower += gems[i].GetComponent<Gem>().powerMod;
+			dWit += gems[i].GetComponent<Gem>().witMod;
+			dVit += gems[i].GetComponent<Gem>().vitMod;
+			
+			dPhysicalDefense += gems[i].GetComponent<Gem>().physicalDefenseMod;
+			dMagicDefense += gems[i].GetComponent<Gem>().magicDefenseMod;	
+			dDamage += (gems[i].GetComponent<Gem>().weaponDamageMod*gems[i].GetComponent<Gem>().weaponDamageMultiplierMod);
+		}
+
+		maxHealth = (dVit*10f);
+		stamina = health = maxStamina =  maxHealth;
+		staminaRegen = (dVit/2f)*Time.deltaTime;
 
 	}
 
 
 
 	public void takeDamage(float magicDmg, float physicalDmg){ //Phys is whether or not damage is physical or not
-		float magicTaken = magicDmg-magicDefense;
-		float physTaken = physicalDmg-physicalDefense;
+		float magicTaken = magicDmg-dMagicDefense;
+		float physTaken = physicalDmg-dPhysicalDefense;
 		if(magicTaken > 0){
 			health-= magicTaken;
 		}
@@ -72,5 +99,10 @@ public class AdventurerStats : MonoBehaviour {
 		if(health <= 0){
 			dead = true;
 		}
+		if(stamina > health){
+			stamina = health;
+		}
+
+		stamina += staminaRegen * Time.fixedDeltaTime;
 	}
 }

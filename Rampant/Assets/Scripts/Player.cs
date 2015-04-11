@@ -100,7 +100,7 @@ public class Player : MonoBehaviour {
 		float diffX = mWorldPos.x - mainPos.x;
 		float diffY = mWorldPos.y - mainPos.y;
 
-		weaponDist = Mathf.Lerp(weaponDist, Mathf.Clamp (Vector2.Distance (mWorldPos, transform.position), .5f, 1f), Time.fixedDeltaTime*5);
+		weaponDist = Mathf.Lerp(weaponDist, Mathf.Clamp (Vector2.Distance (mWorldPos, transform.position), .5f, weapon.GetComponent<Weapon>().maxRange), Time.fixedDeltaTime*5);
 
 		Vector2 dist = new Vector2(Mathf.Cos(Mathf.Atan2 (diffY, diffX)-(sBounce)*Mathf.Deg2Rad)*weaponDist, Mathf.Sin(Mathf.Atan2 (diffY, diffX)-(sBounce)*Mathf.Deg2Rad)*weaponDist);
 		weaponVecDist = dist;
