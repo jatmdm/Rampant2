@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	private float speed;
 	private float fakeMax;
 	public float maxSpeed;
+	private Vector2 knock;
 	
 	private float dashTime;
 	private float dashDelay;
@@ -39,6 +40,8 @@ public class Player : MonoBehaviour {
 	{
 		SP.GetComponent<RectTransform> ().localScale = new Vector2((GetComponent<AdventurerStats> ().stamina/GetComponent<AdventurerStats> ().maxHealth), 1);
 		HP.GetComponent<RectTransform> ().localScale = new Vector2((GetComponent<AdventurerStats> ().health/GetComponent<AdventurerStats> ().maxHealth), 1);
+
+		knock = Vector2.Lerp (knock, Vector2.zero, Time.fixedDeltaTime*5);
 
 		sheathCoolDown -= Time.fixedDeltaTime;
 		dashTime -= Time.fixedDeltaTime;
@@ -68,7 +71,7 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if(dashTime < 0) GetComponent<Rigidbody2D> ().MovePosition (GetComponent<Rigidbody2D> ().position + (vel * (fakeMax) * Time.fixedDeltaTime));
+		if(dashTime < 0) GetComponent<Rigidbody2D> ().MovePosition (GetComponent<Rigidbody2D> ().position + knock + (vel * (fakeMax) * Time.fixedDeltaTime));
 		else GetComponent<Rigidbody2D> ().MovePosition (GetComponent<Rigidbody2D> ().position + (vel * Time.fixedDeltaTime));
 
 		if(Unsheathed)
@@ -94,7 +97,7 @@ public class Player : MonoBehaviour {
 			dashTime = .18f;
 			vel.Normalize();
 			vel *= dashSpeed;
-			GetComponent<AdventurerStats>().fakeStamina -= 20;
+			GetComponent<AdventurerStats>().fakeStamina -= 14;
 		}
 
 		if (weapon) 
@@ -125,6 +128,16 @@ public class Player : MonoBehaviour {
 			weapon.GetComponent<Rigidbody2D> ().MovePosition ((Vector2)this.transform.position + dist);
 
 			weapon.transform.rotation = Quaternion.Euler (0, 0, Mathf.Rad2Deg * Mathf.Atan2 (diffY, diffX) - 90 - sBounce);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D c)
+	{
+		if(c.gameObject.tag == "Enemy")
+		{
+			knock = (this.gameObject.transform.position-c.gameObject.transform.position).normalized*.02f;
+			Camera.main.GetComponent<Cam> ().shakeCam ();
+			GetComponent<AdventurerStats>().takeDamage(c.gameObject.GetComponent<EnemyStats>().magicDamage, c.gameObject.GetComponent<EnemyStats>().physicalDamage);
 		}
 	}
 }

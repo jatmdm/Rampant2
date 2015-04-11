@@ -127,7 +127,7 @@ public class Grid : MonoBehaviour {
 	}
 	bool isAdjascent(NODE n1, NODE n2)
 	{
-		if (Mathf.Abs (Vector2.Distance (n1.pos, n2.pos)) < 1.5f) 
+		if (Mathf.Abs (Vector2.Distance (n1.pos, n2.pos)) <= 1.5f) 
 		{
 			return true;
 		}
