@@ -23,6 +23,10 @@ public class EnemyStats : MonoBehaviour {
 
 	void Update(){
 		if(health <= 0){
+			if(!dead){
+				GetComponent<EnemyDrop>().tryDropItems();
+				GetComponent<Collider2D>().isTrigger = true;
+			}
 			dead = true;
 			tag = "DeadEnemy";
 		}
