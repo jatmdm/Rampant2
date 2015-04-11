@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	private float fakeMax;
 	public float maxSpeed;
 	private Vector2 knock;
+	private float weaponOrient;
 	
 	private float dashTime;
 	private float dashDelay;
@@ -91,7 +92,7 @@ public class Player : MonoBehaviour {
 				fakeMax = Mathf.Lerp(fakeMax, maxSpeed, Time.fixedDeltaTime*5);
 			if(weapon) weapon.SetActive(false);
 		}
-		if(!GetComponent<AdventurerStats>().exausted && Input.GetKeyDown(KeyCode.LeftShift) && dashDelay < 0)
+		if((Mathf.Abs(vel.x) > .1f || Mathf.Abs(vel.y) > .1f) && !GetComponent<AdventurerStats>().exausted && Input.GetKeyDown(KeyCode.LeftShift) && dashDelay < 0)
 		{
 			dashDelay = .25f;
 			dashTime = .18f;
@@ -124,10 +125,17 @@ public class Player : MonoBehaviour {
 					GetComponent<AdventurerStats> ().fakeStamina -= 10;
 				Camera.main.GetComponent<Cam> ().shakeCam ();
 			}
+			if ((GetComponent<AdventurerStats> ().exausted && Unsheathed) || (!GetComponent<AdventurerStats> ().exausted && Input.GetMouseButton (1) && (sheathCoolDown < 0))) {
+				weaponOrient = Mathf.Lerp(weaponOrient, 90, Time.fixedDeltaTime*10);
+			}
+			else
+			{
+				weaponOrient = Mathf.Lerp(weaponOrient, 0, Time.fixedDeltaTime*10);
+			}
 
 			weapon.GetComponent<Rigidbody2D> ().MovePosition ((Vector2)this.transform.position + dist);
 
-			weapon.transform.rotation = Quaternion.Euler (0, 0, Mathf.Rad2Deg * Mathf.Atan2 (diffY, diffX) - 90 - sBounce);
+			weapon.transform.rotation = Quaternion.Euler (0, 0, Mathf.Rad2Deg * Mathf.Atan2 (diffY, diffX) - 90 - sBounce - weaponOrient);
 		}
 	}
 
