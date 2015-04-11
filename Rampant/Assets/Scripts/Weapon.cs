@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 	
 	}
-	
+	//Hella
 	public float dealtPhysicalDamage(){
 		
 		float baseDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<AdventurerStats>().baseDamage;
