@@ -16,4 +16,6 @@ public class Gem : MonoBehaviour {
 	public float physicalDefenseMod;
 	public float magicDefenseMod;
 
+	public Sprite sprite;
+
 }

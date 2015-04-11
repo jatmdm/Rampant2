@@ -30,7 +30,8 @@ public class AdventurerStats : MonoBehaviour {
 	public float dPhysicalDefense; //Damage Reduction (Physical)
 	public float dMagicDefense; //Damage Reduction (Magic)
 
-	public List<GameObject> gems = new List<GameObject>(3);
+	public List<GameObject> currentGems = new List<GameObject>(3);
+	public List<GameObject> gemInventory = new List<GameObject>();
 	public List<GameObject> weapons = new List<GameObject>(3);
 	public bool dead;
 
@@ -67,14 +68,14 @@ public class AdventurerStats : MonoBehaviour {
 		dPhysicalDefense = physicalDefense;
 		dMagicDefense = magicDefense;
 		dDamage = baseDamage;
-		for(int i = 0; i < gems.Count; i++){
-			dPower += gems[i].GetComponent<Gem>().powerMod;
-			dWit += gems[i].GetComponent<Gem>().witMod;
-			dVit += gems[i].GetComponent<Gem>().vitMod;
+		for(int i = 0; i < currentGems.Count; i++){
+			dPower += currentGems[i].GetComponent<Gem>().powerMod;
+			dWit += currentGems[i].GetComponent<Gem>().witMod;
+			dVit += currentGems[i].GetComponent<Gem>().vitMod;
 			
-			dPhysicalDefense += gems[i].GetComponent<Gem>().physicalDefenseMod;
-			dMagicDefense += gems[i].GetComponent<Gem>().magicDefenseMod;	
-			dDamage += (gems[i].GetComponent<Gem>().weaponDamageMod*gems[i].GetComponent<Gem>().weaponDamageMultiplierMod);
+			dPhysicalDefense += currentGems[i].GetComponent<Gem>().physicalDefenseMod;
+			dMagicDefense += currentGems[i].GetComponent<Gem>().magicDefenseMod;	
+			dDamage += (currentGems[i].GetComponent<Gem>().weaponDamageMod*currentGems[i].GetComponent<Gem>().weaponDamageMultiplierMod);
 		}
 
 		maxHealth = (dVit*10f);
