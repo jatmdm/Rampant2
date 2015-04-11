@@ -9,6 +9,7 @@ public class AdventurerStats : MonoBehaviour {
 	public float maxHealth;
 	public float maxStamina;
 	public float stamina;
+	public float fakeStamina;
 	public float staminaRegen;
 
 	public int basePower; //Strength & Dexterity (Phys Damage)
@@ -33,7 +34,7 @@ public class AdventurerStats : MonoBehaviour {
 	public List<GameObject> weapons = new List<GameObject>(3);
 	public bool dead;
 
-
+	public bool exausted; 
 
 	// Use this for initialization
 	void Start () {
@@ -49,6 +50,7 @@ public class AdventurerStats : MonoBehaviour {
 
 		maxHealth = baseVit*10f;
 		stamina = health = maxStamina =  maxHealth;
+		fakeStamina = stamina;
 		staminaRegen = (baseVit/2f)*Time.deltaTime;
 
 		gender = new Vector2(Random.Range(0f, 6f), Random.Range(0f, 6f));
@@ -76,7 +78,7 @@ public class AdventurerStats : MonoBehaviour {
 		}
 
 		maxHealth = (dVit*10f);
-		stamina = health = maxStamina =  maxHealth;
+		stamina = fakeStamina = health = maxStamina =  maxHealth;
 		staminaRegen = (dVit/2f)*Time.deltaTime;
 
 	}
@@ -96,13 +98,28 @@ public class AdventurerStats : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(!GetComponent<Player>().Unsheathed)
+			fakeStamina += staminaRegen * 80 * Time.deltaTime;
+		else
+			fakeStamina += staminaRegen * 40 * Time.deltaTime;
+
+		stamina = Mathf.MoveTowards(stamina, fakeStamina, 50*Time.deltaTime);
+
+		fakeStamina = Mathf.Clamp (fakeStamina, -10, health);
+
 		if(health <= 0){
 			dead = true;
+			Application.LoadLevel(Application.loadedLevel);
 		}
-		if(stamina > health){
+		if(stamina >= health){
 			stamina = health;
+			exausted = false;
 		}
 
-		stamina += staminaRegen * Time.fixedDeltaTime;
+		if(stamina < 0)
+		{
+			exausted = true;
+			stamina = 0;
+		}
 	}
 }
