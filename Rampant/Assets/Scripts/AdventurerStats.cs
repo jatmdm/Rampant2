@@ -37,11 +37,22 @@ public class AdventurerStats : MonoBehaviour {
 
 	public bool exausted; 
 
+	public int healthPotions;
+
 	// Use this for initialization
 	void Start () {
 		initStats();
 		updateStats();
 		dead = false;
+	}
+
+	public void useHealthPotion(){
+		if(healthPotions > 0){
+			health += dVit * 3;
+			if(health > maxHealth)
+				health = maxHealth;
+			healthPotions--;
+		}
 	}
 
 	public void removeGem(int index){
@@ -143,6 +154,10 @@ public class AdventurerStats : MonoBehaviour {
 		{
 			exausted = true;
 			stamina = 0;
+		}
+
+		if(Input.GetKeyDown ("q")){
+			useHealthPotion();
 		}
 	}
 }
