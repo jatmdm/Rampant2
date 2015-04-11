@@ -44,10 +44,25 @@ public class AdventurerStats : MonoBehaviour {
 		dead = false;
 	}
 
+	public void removeGem(int index){
+		//currentGems[index] = Resources.Load("Gems/NoGem");
+	}
+
+	public bool equipGem(GameObject gem){
+		bool switched = false;
+		for(int i = 0; i < currentGems.Count; i++){
+			if(currentGems[i].GetComponent<Gem>().name == "No Gem"){
+				currentGems[i] = gem;
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public void initStats(){
-		basePower = Random.Range(1,4);
-		baseWit = Random.Range (1,4);
-		baseVit = Random.Range (1,4);
+		basePower = Random.Range(3,6);
+		baseWit = Random.Range (3,6);
+		baseVit = Random.Range (3,6);
 
 		maxHealth = baseVit*10f;
 		stamina = health = maxStamina =  maxHealth;
