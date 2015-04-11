@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour {
 		float baseDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<AdventurerStats>().baseDamage;
 		float power = GameObject.FindGameObjectWithTag("Player").GetComponent<AdventurerStats>().dPower;
 		
-		float totalDamage = (physicalDamage+baseDmg+power)*physicalDamageMultiplier;
+		float totalDamage = (physicalDamage + (power*physicalDamageMultiplier))*physicalDamageMultiplier;
 		
 		return totalDamage;
 	}
@@ -39,9 +39,16 @@ public class Weapon : MonoBehaviour {
 	public float dealtMagicDamage(){
 		float wit = GameObject.FindGameObjectWithTag("Player").GetComponent<AdventurerStats>().dWit;
 		
-		float totalDamage = (physicalDamage+(wit*8))*physicalDamageMultiplier;
+		float totalDamage = (magicDamage+(wit*8))*magicDamageMultiplier;
 		
 		return totalDamage;
 	}
 
+	public void OnTriggerEnter2D(Collider2D c){
+		if(c.gameObject.tag == "Enemy"){
+			Debug.Log(dealtPhysicalDamage() + " " + dealtMagicDamage());
+			c.gameObject.GetComponent<EnemyStats>().takeDamage(dealtPhysicalDamage(), dealtMagicDamage());
+			c.gameObject.GetComponent<RevanentAI>().knock = (c.gameObject.transform.position-this.gameObject.transform.position).normalized;
+		}
+	}
 }

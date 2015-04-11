@@ -14,8 +14,17 @@ public class EnemyStats : MonoBehaviour {
 	public float physicalDefense; //Damage Reduction (Physical)
 	public float magicDefense; //Damage Reduction (Magic)
 
+	public bool dead;
+
 	void Start(){
 		health = maxHealth;
+		dead = false;
+	}
+
+	void Update(){
+		if(health <= 0){
+			dead = true;
+		}
 	}
 
 	public void takeDamage(float physicalDmg, float magicDmg){ 
