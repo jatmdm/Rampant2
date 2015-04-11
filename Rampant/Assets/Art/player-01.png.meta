@@ -1,11 +1,20 @@
 fileFormatVersion: 2
 guid: fe053d0ed17dc4cf9926dc2fd8320986
-timeCreated: 1428720537
+timeCreated: 1428744540
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: player-01_0
     21300002: player-01_1
+    21300004: player-01_2
+    21300006: player-01_3
+    21300008: player-01_4
+    21300010: player-01_5
+    21300012: player-01_6
+    21300014: player-01_7
+    21300016: player-01_8
+    21300018: player-01_9
+    21300020: player-01_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +68,7 @@ TextureImporter:
         width: 42
         height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: player-01_1
       rect:
@@ -69,7 +78,97 @@ TextureImporter:
         width: 22
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 76
+        width: 42
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 3
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 18
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_6
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_7
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 9
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_8
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 5
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_9
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 6
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player-01_10
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 22
+        width: 42
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
