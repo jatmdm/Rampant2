@@ -1,9 +1,23 @@
 fileFormatVersion: 2
 guid: 5a95cfad1e2e74f06b2c333aedc50b60
-timeCreated: 1428786494
+timeCreated: 1428796007
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: UIGems_0
+    21300002: UIGems_1
+    21300004: UIGems_2
+    21300006: UIGems_3
+    21300008: UIGems_4
+    21300010: UIGems_5
+    21300012: UIGems_6
+    21300014: UIGems_7
+    21300016: UIGems_8
+    21300018: UIGems_9
+    21300020: UIGems_10
+    21300022: UIGems_11
+    21300024: UIGems_12
+    21300026: UIGems_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +51,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +62,147 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: UIGems_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 254
+        height: 571
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_1
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 590
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_2
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 590
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_3
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 590
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_4
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 590
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_5
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 490
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_6
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 490
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_7
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 490
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_8
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 390
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_9
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 390
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_10
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 291
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_11
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 260
+        width: 83
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_12
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1
+        width: 197
+        height: 230
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UIGems_13
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 0
+        width: 198
+        height: 231
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

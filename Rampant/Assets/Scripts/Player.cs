@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
@@ -25,6 +26,12 @@ public class Player : MonoBehaviour {
 	public GameObject HP;
 	public GameObject SP;
 
+	public GameObject Can;
+	public bool pause = false;
+
+	public List<GameObject> weaponInv = new List<GameObject>();
+	public GameObject[] weaponUI = new GameObject[3];
+
 	// Use this for initialization
 	void Start () {
 		Physics2D.IgnoreLayerCollision (10, 9);
@@ -36,6 +43,77 @@ public class Player : MonoBehaviour {
 		return weaponVecDist.normalized;
 	}
 
+	public void wepMenu()
+	{
+		for(int i=0; i < weaponUI.Length; i++)
+		{
+			weaponUI[i].GetComponent<Animator>().SetBool("in", false);
+		}
+		pause = false;
+	}
+
+	void Update()
+	{
+		int count = 0;
+		foreach (GameObject g in weaponInv) 
+		{
+			weaponUI[count].GetComponent<weaponInfo>().obj = g;
+			weaponUI[count].transform.FindChild("Image").GetComponent<Image>().sprite = g.GetComponent<SpriteRenderer>().sprite;
+			if(!pause)weaponUI[count].transform.FindChild("Image").GetComponent<Image>().color = new Color(1, 1, 1, 0);
+			count++;	
+		}
+
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			pause = !pause;
+			if(pause)
+			{
+				Can.transform.FindChild("pause").FindChild("Stats").GetComponent<Animator>().SetBool("in", true);
+				Can.transform.FindChild("pause").FindChild("lace").GetComponent<Animator>().SetBool("in", true);
+				Can.transform.FindChild("pause").FindChild("GemScroll").GetComponent<Animator>().SetBool("in", true);
+			}
+			if(!pause)
+			{
+				Can.transform.FindChild("pause").FindChild("Stats").GetComponent<Animator>().SetBool("in", false);
+				Can.transform.FindChild("pause").FindChild("lace").GetComponent<Animator>().SetBool("in", false);
+				Can.transform.FindChild("pause").FindChild("GemScroll").GetComponent<Animator>().SetBool("in", false);
+			}
+		}
+
+		if(Input.GetKeyDown(KeyCode.F))
+		{
+			pause = !pause;
+			if(pause)
+			{
+				for(int i=0; i < weaponUI.Length; i++)
+				{
+					weaponUI[i].transform.FindChild("Image").GetComponent<Image>().SetNativeSize();
+					weaponUI[i].GetComponent<Animator>().SetBool("in", true);
+					if(weaponUI[i].transform.FindChild("Image").GetComponent<Image>().sprite) weaponUI[i].transform.FindChild("Image").GetComponent<Image>().color = Color.white;
+					if(!weaponUI[i].transform.FindChild("Image").GetComponent<Image>().sprite) weaponUI[i].transform.FindChild("Image").GetComponent<Image>().color = new Color(1, 1, 1, 0);
+				}
+			}
+			if(!pause)
+			{
+				for(int i=0; i < weaponUI.Length; i++)
+				{
+					weaponUI[i].GetComponent<Animator>().SetBool("in", false);
+				 	weaponUI[i].transform.FindChild("Image").GetComponent<Image>().color = new Color(1, 1, 1, 0);
+				}
+			}
+		}
+		
+		if(pause)
+		{
+			Can.GetComponent<statScreen>().UpdateUI();
+			GetComponent<Rigidbody2D>().isKinematic = true;
+		}
+		else
+		{
+			GetComponent<Rigidbody2D>().isKinematic = false;
+		}
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
@@ -43,7 +121,7 @@ public class Player : MonoBehaviour {
 		{
 			transform.rotation = Quaternion.Euler(0, 0, 90);
 		}
-		if(!GetComponent<AdventurerStats>().dead)
+		if(!GetComponent<AdventurerStats>().dead && !pause)
 		{
 			SP.GetComponent<RectTransform> ().localScale = new Vector2((GetComponent<AdventurerStats> ().stamina/GetComponent<AdventurerStats> ().maxHealth), 1);
 			HP.GetComponent<RectTransform> ().localScale = new Vector2((GetComponent<AdventurerStats> ().health/GetComponent<AdventurerStats> ().maxHealth), 1);
