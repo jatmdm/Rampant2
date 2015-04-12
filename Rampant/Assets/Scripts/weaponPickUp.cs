@@ -10,9 +10,11 @@ public class weaponPickUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.E) && !GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().weapon &&  Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1f)
+		if(Input.GetKeyDown(KeyCode.E) &&  Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1f)
 		{
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().weapon = this.gameObject;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().weaponInv.Add(this.gameObject);
+
 			Camera.main.GetComponent<Cam> ().shakeCam ();
 			Destroy (this);
 		}

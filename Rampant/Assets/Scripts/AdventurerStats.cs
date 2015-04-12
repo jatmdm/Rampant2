@@ -58,10 +58,23 @@ public class AdventurerStats : MonoBehaviour {
 	}
 
 	public void removeGem(int index){
-		//currentGems[index] = Resources.Load("Gems/NoGem");
+		currentGems[index] = Resources.Load("Gems/NoGem") as GameObject;
 	}
 
+	public void removeGem2(int index){
+		gemInventory[index] = Resources.Load("Gems/NoGem") as GameObject;
+	}
 	public bool equipGem(GameObject gem){
+		bool switched = false;
+		for(int i = 0; i < gemInventory.Count; i++){
+			if(gemInventory[i].GetComponent<Gem>().name == "No Gem"){
+				gemInventory[i] = gem;
+				return true;
+			}
+		}
+		return false;
+	}
+	public bool equipGem2(GameObject gem){
 		bool switched = false;
 		for(int i = 0; i < currentGems.Count; i++){
 			if(currentGems[i].GetComponent<Gem>().name == "No Gem"){
