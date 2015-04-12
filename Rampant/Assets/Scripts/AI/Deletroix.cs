@@ -51,7 +51,7 @@ public class Deletroix : MonoBehaviour {
 				damageReaction += Time.fixedDeltaTime;
 			}
 
-			if(damageReaction > 10)
+			if(damageReaction > 3)
 			{	
 				transform.position = new Vector2(Random.Range(-63, -48), Random.Range(-10, -20));
 				damageReaction = 0;
@@ -66,7 +66,10 @@ public class Deletroix : MonoBehaviour {
 				{
 					for(int i=0; i < Mathf.Abs(spawnTotal-en.Length); i++)
 					{
-						Instantiate(enemies[Random.Range(0, enemies.Length)], this.gameObject.transform.position, Quaternion.identity);
+						if(Random.Range(0, 100) > 80)
+							Instantiate(enemies[0], this.gameObject.transform.position, Quaternion.identity);
+						else
+							Instantiate(enemies[1], this.gameObject.transform.position, Quaternion.identity);
 					}
 				}
 			}

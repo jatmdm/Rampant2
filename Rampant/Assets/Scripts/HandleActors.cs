@@ -22,7 +22,7 @@ public class HandleActors : MonoBehaviour {
 
 	void HandleEnemies(){
 		for(int i = 0; i < enemies.Count; i++){
-			if(enemies[i] && Vector2.Distance(enemies[i].transform.position, Player.transform.position) > 10){
+			if(enemies[i] && Vector2.Distance(enemies[i].transform.position, Player.transform.position) > 20){
 				enemies[i].active = false;
 			}
 			else
@@ -39,7 +39,7 @@ public class HandleActors : MonoBehaviour {
 		if(cooldown <= 0){
 			getEnemies();
 			HandleEnemies();
-			cooldown = 2f;
+			cooldown = 4f;
 		}
 	}
 }

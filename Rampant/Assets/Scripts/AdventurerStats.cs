@@ -62,16 +62,19 @@ public class AdventurerStats : MonoBehaviour {
 
 	public void removeGem(int index){
 		currentGems[index] = Resources.Load("Gems/NoGem") as GameObject;
+		updateStats();
 	}
 
 	public void removeGem2(int index){
 		gemInventory[index] = Resources.Load("Gems/NoGem") as GameObject;
+		updateStats();
 	}
 	public bool equipGem(GameObject gem){
 		bool switched = false;
 		for(int i = 0; i < gemInventory.Count; i++){
 			if(gemInventory[i].GetComponent<Gem>().gemName == "No Gem"){
 				gemInventory[i] = gem;
+				updateStats();
 				return true;
 			}
 		}
@@ -82,6 +85,7 @@ public class AdventurerStats : MonoBehaviour {
 		for(int i = 0; i < currentGems.Count; i++){
 			if(currentGems[i].GetComponent<Gem>().gemName == "No Gem"){
 				currentGems[i] = gem;
+				updateStats();
 				return true;
 			}
 		}
@@ -122,8 +126,11 @@ public class AdventurerStats : MonoBehaviour {
 			dDamage += (currentGems[i].GetComponent<Gem>().weaponDamageMod*currentGems[i].GetComponent<Gem>().weaponDamageMultiplierMod);
 		}
 
+		if(dVit < 1)
+			dVit = 1;
+
 		maxHealth = (dVit*10f);
-		stamina = fakeStamina = health = maxStamina =  maxHealth;
+		//stamina = fakeStamina = health = maxStamina =  maxHealth;
 		staminaRegen = (dVit/2f)*Time.deltaTime;
 
 	}
@@ -143,6 +150,11 @@ public class AdventurerStats : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(exausted)
+		{
+			fakeStamina += staminaRegen * 90 * Time.deltaTime;
+		}
+
 		if(!GetComponent<Player>().Unsheathed)
 			fakeStamina += staminaRegen * 90 * Time.deltaTime;
 		else
