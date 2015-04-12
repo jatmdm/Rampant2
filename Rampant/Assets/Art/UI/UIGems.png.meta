@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5a95cfad1e2e74f06b2c333aedc50b60
-timeCreated: 1428796007
+timeCreated: 1428815875
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 260
         width: 83
         height: 126
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: UIGems_12
       rect:

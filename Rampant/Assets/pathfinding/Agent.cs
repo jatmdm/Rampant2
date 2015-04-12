@@ -84,6 +84,6 @@ public class Agent : MonoBehaviour {
 		
 		avoidanceForce = Vector2.Lerp (avoidanceForce, avoidanceCheck (), Time.fixedDeltaTime * 2);
 
-		return  (path [pathCount].pos - (Vector2)transform.position).normalized;//+(avoidanceForce);
+		return  (path [pathCount].pos - (Vector2)transform.position).normalized+(avoidanceForce);
 	}
 }

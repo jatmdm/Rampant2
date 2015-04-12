@@ -22,11 +22,13 @@ public class HandleActors : MonoBehaviour {
 
 	void HandleEnemies(){
 		for(int i = 0; i < enemies.Count; i++){
-			if(Vector2.Distance(enemies[i].transform.position, Player.transform.position) > 10){
+			if(enemies[i] && Vector2.Distance(enemies[i].transform.position, Player.transform.position) > 10){
 				enemies[i].active = false;
 			}
-			else{
-				enemies[i].active = true;
+			else
+			{
+				if(enemies[i])
+					enemies[i].active = true;
 			}
 		}
 	}

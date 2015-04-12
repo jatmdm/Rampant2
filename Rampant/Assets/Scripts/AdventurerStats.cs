@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class AdventurerStats : MonoBehaviour {
@@ -35,6 +35,9 @@ public class AdventurerStats : MonoBehaviour {
 	public List<GameObject> weapons = new List<GameObject>(3);
 	public bool dead;
 
+	private float deathTime = 0;
+	public GameObject gameOver;
+
 	public bool exausted; 
 
 	public int healthPotions;
@@ -67,7 +70,7 @@ public class AdventurerStats : MonoBehaviour {
 	public bool equipGem(GameObject gem){
 		bool switched = false;
 		for(int i = 0; i < gemInventory.Count; i++){
-			if(gemInventory[i].GetComponent<Gem>().name == "No Gem"){
+			if(gemInventory[i].GetComponent<Gem>().gemName == "No Gem"){
 				gemInventory[i] = gem;
 				return true;
 			}
@@ -77,7 +80,7 @@ public class AdventurerStats : MonoBehaviour {
 	public bool equipGem2(GameObject gem){
 		bool switched = false;
 		for(int i = 0; i < currentGems.Count; i++){
-			if(currentGems[i].GetComponent<Gem>().name == "No Gem"){
+			if(currentGems[i].GetComponent<Gem>().gemName == "No Gem"){
 				currentGems[i] = gem;
 				return true;
 			}
@@ -155,9 +158,23 @@ public class AdventurerStats : MonoBehaviour {
 			maxStamina = maxHealth*.2f;
 		}
 
+		if(dead)
+		{
+			deathTime += Time.deltaTime;
+		}
+
+		if(deathTime > 2.85f)
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
+
 		if(health <= 0){
+			if(!dead)
+			{
+				GameObject tmp = Instantiate(gameOver, Vector2.zero, Quaternion.identity) as GameObject;
+				tmp.transform.SetParent(GameObject.Find("Canvas").transform, false);
+			}
 			dead = true;
-			//Application.LoadLevel(Application.loadedLevel);
 		}
 		if(fakeStamina >= maxStamina+staminaRegen)
 		{
@@ -171,7 +188,10 @@ public class AdventurerStats : MonoBehaviour {
 			stamina = 0;
 		}
 
+		GameObject.Find ("potions").transform.GetChild (0).GetComponent<Text> ().text = healthPotions.ToString ();
+
 		if(Input.GetKeyDown ("q")){
+			GameObject.Find("potions").GetComponent<Animator>().SetTrigger("use");
 			useHealthPotion();
 		}
 	}

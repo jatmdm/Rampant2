@@ -29,6 +29,7 @@ public class weaponInfo : MonoBehaviour {
 	{
 		if (obj && GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().pause)
 		{
+			if(GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().weapon.activeSelf) GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().weapon.SetActive(false);
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().weapon = obj;
 		}
 

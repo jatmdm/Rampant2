@@ -68,12 +68,16 @@ public class Player : MonoBehaviour {
 			pause = !pause;
 			if(pause)
 			{
+				Can.transform.FindChild("weapons").gameObject.SetActive(false);
+
 				Can.transform.FindChild("pause").FindChild("Stats").GetComponent<Animator>().SetBool("in", true);
 				Can.transform.FindChild("pause").FindChild("lace").GetComponent<Animator>().SetBool("in", true);
 				Can.transform.FindChild("pause").FindChild("GemScroll").GetComponent<Animator>().SetBool("in", true);
 			}
 			if(!pause)
 			{
+				Can.transform.FindChild("weapons").gameObject.SetActive(true);
+
 				Can.transform.FindChild("pause").FindChild("Stats").GetComponent<Animator>().SetBool("in", false);
 				Can.transform.FindChild("pause").FindChild("lace").GetComponent<Animator>().SetBool("in", false);
 				Can.transform.FindChild("pause").FindChild("GemScroll").GetComponent<Animator>().SetBool("in", false);
