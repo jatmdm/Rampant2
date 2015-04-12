@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Gem : MonoBehaviour {
 
-	public string name;
+	public string gemName;
 	public string description;
 
 	public int powerMod;

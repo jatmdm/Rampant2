@@ -126,6 +126,12 @@ public class Player : MonoBehaviour {
 			SP.GetComponent<RectTransform> ().localScale = new Vector2((GetComponent<AdventurerStats> ().stamina/GetComponent<AdventurerStats> ().maxHealth), 1);
 			HP.GetComponent<RectTransform> ().localScale = new Vector2((GetComponent<AdventurerStats> ().health/GetComponent<AdventurerStats> ().maxHealth), 1);
 
+			SP.GetComponent<RectTransform> ().localScale = new Vector2(Mathf.Clamp(SP.GetComponent<RectTransform> ().localScale.x, 0, GetComponent<AdventurerStats>().maxHealth),
+			                                                                       Mathf.Clamp(SP.GetComponent<RectTransform>().localScale.y, 0, GetComponent<AdventurerStats>().maxHealth));
+			HP.GetComponent<RectTransform> ().localScale = new Vector2(Mathf.Clamp(HP.GetComponent<RectTransform> ().localScale.x, 0, GetComponent<AdventurerStats>().maxHealth),
+			                                                                      Mathf.Clamp(HP.GetComponent<RectTransform>().localScale.y, 0, GetComponent<AdventurerStats>().maxHealth));
+
+
 			knock = Vector2.Lerp (knock, Vector2.zero, Time.fixedDeltaTime*5);
 
 			sheathCoolDown -= Time.fixedDeltaTime;

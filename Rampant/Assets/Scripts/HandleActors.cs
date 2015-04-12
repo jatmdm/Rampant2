@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class HandleActors : MonoBehaviour {
 	public GameObject Player;
 	public List<GameObject> enemies;
-	public float cooldown = 2f;
+	public float cooldown = -1f;
 	// Use this for initialization
 	void Start () {
 		Player = GameObject.Find("Player");
